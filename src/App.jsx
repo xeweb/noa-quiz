@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { FiArrowRight, FiArrowLeft, FiCheck } from "react-icons/fi";
 import { steps } from "./data/quizSteps";
 import { advice } from "./data/quizAdvice";
 
 export default function App() {
+  const progressBarRef = useRef(null);
+  const resultsRef = useRef(null);
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState({
     lifeStage: "",
@@ -14,6 +16,24 @@ export default function App() {
     nutritionalSymptoms: [],
     lifestyle: [],
   });
+
+  const scrollToTop = () => {
+    if (progressBarRef.current) {
+      progressBarRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "center",
+      });
+    }
+
+    if (resultsRef.current) {
+      resultsRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "center",
+      });
+    }
+  };
 
   const handleAnswer = (stepId, value) => {
     setAnswers((prev) => ({
@@ -76,12 +96,14 @@ export default function App() {
     if (currentStep < steps.length) {
       setCurrentStep(currentStep + 1);
     }
+    setTimeout(scrollToTop, 100);
   };
 
   const prevStep = () => {
     if (currentStep > 0) {
       setCurrentStep(currentStep - 1);
     }
+    setTimeout(scrollToTop, 100);
   };
 
   const canProceed = () => {
@@ -161,7 +183,10 @@ export default function App() {
       return (
         <div className="space-y-8">
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+            <h2
+              className="text-2xl font-semibold text-gray-900 mb-4"
+              ref={resultsRef}
+            >
               Here's what your answers reveal and where to start:
             </h2>
           </div>
@@ -238,7 +263,7 @@ export default function App() {
         return (
           <div className="text-center space-y-6">
             <h2 className="text-2xl font-bold text-gray-900">{step.title}</h2>
-            <p className="text-gray-700 text-lg leading-relaxed">
+            <p className="text-gray-700 text-md leading-relaxed">
               {step.description}
             </p>
           </div>
@@ -251,22 +276,28 @@ export default function App() {
               {step.title}
             </h2>
             <div className="space-y-3">
-              {step.options.map((option) => (
-                <label
-                  key={option}
-                  className="flex items-center p-4 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors"
-                >
-                  <input
-                    type="radio"
-                    name={step.id}
-                    value={option}
-                    checked={answers[step.id] === option}
-                    onChange={(e) => handleAnswer(step.id, e.target.value)}
-                    className="mr-3 text-black focus:ring-black"
-                  />
-                  <span className="text-gray-700">{option}</span>
-                </label>
-              ))}
+              {step.options.map((option) => {
+                const isSelected = answers[step.id] === option;
+
+                return (
+                  <label
+                    key={option}
+                    className={`flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors ${
+                      isSelected ? "border-black bg-gray-50" : "border-gray-200"
+                    }`}
+                  >
+                    <input
+                      type="radio"
+                      name={step.id}
+                      value={option}
+                      checked={isSelected}
+                      onChange={(e) => handleAnswer(step.id, e.target.value)}
+                      className="mr-3 text-black focus:ring-black"
+                    />
+                    <span className="text-gray-700">{option}</span>
+                  </label>
+                );
+              })}
             </div>
           </div>
         );
@@ -291,6 +322,8 @@ export default function App() {
                     className={`flex items-center p-4 border rounded-lg transition-colors ${
                       isDisabled
                         ? "border-gray-200 bg-gray-50 cursor-not-allowed"
+                        : isSelected
+                        ? "border-black bg-gray-50"
                         : "border-gray-200 hover:bg-gray-50 cursor-pointer"
                     }`}
                   >
@@ -343,6 +376,8 @@ export default function App() {
                     className={`flex items-center p-4 border rounded-lg transition-colors ${
                       isDisabled
                         ? "border-gray-200 bg-gray-50 cursor-not-allowed"
+                        : isSelected
+                        ? "border-black bg-gray-50"
                         : "border-gray-200 hover:bg-gray-50 cursor-pointer"
                     }`}
                   >
@@ -385,7 +420,7 @@ export default function App() {
       {/* Header */}
       <header className="bg-black text-white sticky top-0 z-10">
         <div className="h-14 flex items-center justify-center">
-          <h1 className="text-xl font-semibold">NOA Quiz</h1>
+          <h1 className="text-xl font-semibold">Now Often Always Quiz</h1>
         </div>
       </header>
 
@@ -394,7 +429,7 @@ export default function App() {
         <div className="max-w-xl mx-auto">
           {/* Progress Bar */}
           {currentStep < steps.length && (
-            <div className="mb-8">
+            <div ref={progressBarRef} className="mb-8">
               <div className="flex items-center justify-between text-sm text-gray-600 mb-2">
                 <span>
                   Step {currentStep + 1} of {steps.length}
