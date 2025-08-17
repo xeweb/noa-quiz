@@ -67,31 +67,6 @@ export default function App() {
     });
   };
 
-  const handleSymptomsAnswer = (stepId, value) => {
-    setAnswers((prev) => {
-      const currentAnswers = prev[stepId];
-
-      // If unchecking, always allow
-      if (currentAnswers.includes(value)) {
-        return {
-          ...prev,
-          [stepId]: currentAnswers.filter((item) => item !== value),
-        };
-      }
-
-      // If checking, only allow if under 3 selections
-      if (currentAnswers.length < 3) {
-        return {
-          ...prev,
-          [stepId]: [...currentAnswers, value],
-        };
-      }
-
-      // If already at limit, don't add
-      return prev;
-    });
-  };
-
   const nextStep = () => {
     if (currentStep < steps.length) {
       setCurrentStep(currentStep + 1);
@@ -388,7 +363,7 @@ export default function App() {
                       checked={isSelected}
                       disabled={isDisabled}
                       onChange={(e) =>
-                        handleSymptomsAnswer(step.id, e.target.value)
+                        handleMultipleAnswer(step.id, e.target.value)
                       }
                       className={`mr-3 focus:ring-black ${
                         isDisabled

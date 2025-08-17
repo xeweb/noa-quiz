@@ -6,7 +6,7 @@ export const advice = {
       tips: [
         "Add one more colour to your plate each meal",
         "Keep protein on every plate",
-        "Aim for 7–8 hours of sleep (Netflix can wait!)",
+        "Aim for 7-8 hours of sleep (Netflix can wait!)",
       ],
     },
     Moderate: {
@@ -14,7 +14,7 @@ export const advice = {
         "Your results may indicate that your hormones need support, especially if you experience cycle changes, PMS symptoms, or skin/hair changes.",
       tips: [
         "Switch from coffee to matcha or herbal tea in the week before your period",
-        "Add 1–2 tbsp of ground flaxseed daily to support hormone balance",
+        "Add 1-2 tbsp of ground flaxseed daily to support hormone balance",
         "Make your breakfast protein-rich to help stabilise blood sugar and mood",
       ],
     },
@@ -22,7 +22,7 @@ export const advice = {
       title:
         "Your results suggest a strong likelihood of hormone imbalance. Symptoms like irregular cycles, heavy or painful periods, mood swings, or low libido often point to imbalances in oestrogen, progesterone, or other key hormones.",
       tips: [
-        "Cut back caffeine in the 7–10 days before your period to ease PMS symptoms",
+        "Cut back caffeine in the 7-10 days before your period to ease PMS symptoms",
         "Include a variety of healthy fats (avocado, oily fish, nuts) to support hormone production",
         "Keep blood sugar steady with balanced meals — hormones and glucose are best friends",
       ],
@@ -51,7 +51,7 @@ export const advice = {
       title:
         "Your results show strong signs of chronic stress or dysregulation of your stress response system.",
       tips: [
-        "Begin your day with 5–10 minutes outside to help reset your body clock",
+        "Begin your day with 5-10 minutes outside to help reset your body clock",
         "Add a short wind-down ritual at night — think herbal tea, stretching, or reading",
         "Focus on balanced meals to avoid blood sugar crashes, which can spike stress hormones",
       ],
