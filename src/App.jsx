@@ -142,13 +142,15 @@ export default function App() {
   const canProceed = () => {
     const currentStepData = filteredSteps[currentStep];
     if (currentStepData.type === "welcome") return true;
-    if (currentStepData.type === "email")
-      return (
-        answers.firstName.trim() !== "" &&
-        answers.lastName.trim() !== "" &&
-        answers.email.trim() !== "" &&
-        marketingConsent
-      );
+    // @todo remove
+    if (currentStepData.type === "email") return true;
+    // if (currentStepData.type === "email")
+    //   return (
+    //     answers.firstName.trim() !== "" &&
+    //     answers.lastName.trim() !== "" &&
+    //     answers.email.trim() !== "" &&
+    //     marketingConsent
+    //   );
     if (currentStepData.type === "blocked") return false;
 
     const answer = answers[currentStepData.id];
