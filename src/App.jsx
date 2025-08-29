@@ -260,64 +260,58 @@ export default function App() {
           </div>
 
           <div className="space-y-6">
-            {Object.entries(scores).map(([category, score]) => {
-              const level = getScoreLevel(score);
-              const advice = getAdvice(category, level);
-              const categoryName = {
-                hormones: "Hormones",
-                stress: "Stress",
-                bloodSugar: "Blood Sugar",
-                nutritional: "Nutritional Status",
-              }[category];
+            {Object.entries(scores)
+              .filter(([category, score]) => score > 0)
+              .map(([category, score]) => {
+                const level = getScoreLevel(score);
+                const advice = getAdvice(category, level);
+                const categoryName = {
+                  hormones: "Hormones",
+                  stress: "Stress",
+                  bloodSugar: "Blood Sugar",
+                  nutritional: "Nutritional Status",
+                }[category];
 
-              return (
-                <div
-                  key={category}
-                  className="bg-white rounded-lg p-6 border border-gray-200"
-                >
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-lg font-semibold text-gray-900">
-                      {categoryName}
-                    </h3>
-                    <span
-                      className={`px-3 py-1 rounded-full text-sm font-medium ${
-                        level === "Low"
-                          ? "bg-green-100 text-green-800"
-                          : level === "Moderate"
-                          ? "bg-yellow-100 text-yellow-800"
-                          : "bg-red-100 text-red-800"
-                      }`}
-                    >
-                      {level}
-                    </span>
+                return (
+                  <div
+                    key={category}
+                    className="bg-white rounded-lg p-6 border border-gray-200"
+                  >
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="text-lg font-semibold text-gray-900">
+                        {categoryName}
+                      </h3>
+                      <span
+                        className={`px-3 py-1 rounded-full text-sm font-medium ${
+                          level === "Low"
+                            ? "bg-green-100 text-green-800"
+                            : level === "Moderate"
+                            ? "bg-yellow-100 text-yellow-800"
+                            : "bg-red-100 text-red-800"
+                        }`}
+                      >
+                        {level}
+                      </span>
+                    </div>
+
+                    <p className="text-gray-700 mb-4">{advice.title}</p>
+
+                    <div className="space-y-2">
+                      <h4 className="font-medium text-gray-900">
+                        Do this today:
+                      </h4>
+                      <ul className="space-y-2">
+                        {advice.tips.map((tip, index) => (
+                          <li key={index} className="flex items-start">
+                            <FiCheck className="text-green-500 mt-1 mr-2 flex-shrink-0" />
+                            <span className="text-gray-700">{tip}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-
-                  <p className="text-gray-700 mb-4">{advice.title}</p>
-
-                  <div className="space-y-2">
-                    <h4 className="font-medium text-gray-900">
-                      Do this today:
-                    </h4>
-                    <ul className="space-y-2">
-                      {advice.tips.map((tip, index) => (
-                        <li key={index} className="flex items-start">
-                          <FiCheck className="text-green-500 mt-1 mr-2 flex-shrink-0" />
-                          <span className="text-gray-700">{tip}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    {advice.nextStep && (
-                      <div className="mt-4 pt-4 border-t border-gray-200">
-                        <h4 className="font-medium text-gray-900 mb-2">
-                          Your next step:
-                        </h4>
-                        <p className="text-gray-700">{advice.nextStep}</p>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              );
-            })}
+                );
+              })}
           </div>
 
           <div className="text-center space-y-6">

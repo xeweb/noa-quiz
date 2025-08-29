@@ -101,7 +101,7 @@ export const steps = [
   },
   {
     id: "menopauseSymptoms",
-    title: "Menopause Symptoms (Scored)",
+    title: "Menopause Symptoms",
     type: "symptoms",
     showIf: "Menopause",
     options: [
