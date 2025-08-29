@@ -3,22 +3,40 @@ export const steps = [
     id: "welcome",
     title: "Welcome to Now Often Always",
     description:
-      "We created this mini wellness quiz to help you understand what your body might be telling you. Let's get started:",
+      "This 90-second quiz is your first step to cutting through the confusion and understanding what your body might be telling you. Ready to get started?",
+    disclaimer:
+      "This quiz is for educational purposes only and is not a substitute for medical advice or diagnosis. If you have concerns about your health, please speak with a qualified healthcare professional.",
     type: "welcome",
   },
   {
+    id: "emailCapture",
+    title: "Your Details",
+    description:
+      "Please enter your name and email address to receive your personalised results:",
+    type: "email",
+  },
+  {
     id: "lifeStage",
-    title: "What stage of life are you in?",
+    title:
+      "Let's start with understanding what stage of life you are in. Tick one of the options below:",
     type: "single",
     options: [
       "I have a monthly cycle",
       "I'm pregnant",
-      "I'm postpartum (less than 12 months)",
+      "I'm postpartum (less than 6 months)",
       "Perimenopause",
       "Menopause",
       "Not sure",
       "Prefer not to say",
     ],
+  },
+  {
+    id: "pregnantPostpartum",
+    title:
+      "We are not currently working with women who are pregnant or less than 6 months postpartum.",
+    description:
+      "We are working on this service to deliver something special and bespoke to your life stage. Love Team NOA ❤️",
+    type: "blocked",
   },
   {
     id: "goals",
@@ -36,7 +54,7 @@ export const steps = [
   },
   {
     id: "hormoneSymptoms",
-    title: "Let's start with your hormone symptoms. Tick all that apply:",
+    title: "Let's start with understanding your hormone symptoms:",
     type: "symptoms",
     options: [
       {
@@ -82,8 +100,114 @@ export const steps = [
     ],
   },
   {
+    id: "menopauseSymptoms",
+    title: "Menopause Symptoms",
+    type: "symptoms",
+    showIf: "Menopause",
+    options: [
+      {
+        text: "Hot flushes or night sweats",
+        severity: 3,
+        category: "Severe",
+      },
+      {
+        text: "Sleep problems (waking often, restless sleep, or early waking)",
+        severity: 3,
+        category: "Severe",
+      },
+      {
+        text: "Vaginal dryness or discomfort during sex",
+        severity: 2,
+        category: "Moderate",
+      },
+      {
+        text: "Low libido that feels new or unusual",
+        severity: 2,
+        category: "Moderate",
+      },
+      {
+        text: "Mood swings, irritability, or increased anxiety",
+        severity: 2,
+        category: "Moderate",
+      },
+      {
+        text: "Achy joints or new stiffness",
+        severity: 2,
+        category: "Moderate",
+      },
+      {
+        text: "Noticeable hair or skin changes (shedding, dryness, dullness, thinning)",
+        severity: 2,
+        category: "Moderate",
+      },
+      {
+        text: "Unexplained weight changes",
+        severity: 2,
+        category: "Moderate",
+      },
+    ],
+  },
+  {
+    id: "perimenopauseSymptoms",
+    title: "Perimenopause Symptoms",
+    type: "symptoms",
+    showIf: "Perimenopause",
+    options: [
+      {
+        text: "Cycles are irregular, unpredictable, or skipped altogether",
+        severity: 3,
+        category: "Severe",
+      },
+      {
+        text: "Periods are heavier, lighter, or more painful than they used to be",
+        severity: 3,
+        category: "Severe",
+      },
+      {
+        text: "Mood swings, irritability, anxiety, or low mood are worse than before",
+        severity: 2,
+        category: "Moderate",
+      },
+      {
+        text: "Bloating or water retention is more noticeable around your cycle",
+        severity: 1,
+        category: "Mild",
+      },
+      {
+        text: "Breast tenderness before your period",
+        severity: 1,
+        category: "Mild",
+      },
+      {
+        text: "Hot flushes, night sweats, or sudden changes in body temperature",
+        severity: 2,
+        category: "Moderate",
+      },
+      {
+        text: "Libido has noticeably decreased compared to a few years ago",
+        severity: 2,
+        category: "Moderate",
+      },
+      {
+        text: "Changes to hair and skin (shedding, dryness, thinning, dullness, or new breakouts)",
+        severity: 2,
+        category: "Moderate",
+      },
+      {
+        text: "Sleep disturbances (difficulty falling asleep, staying asleep, or waking too early)",
+        severity: 2,
+        category: "Moderate",
+      },
+      {
+        text: "Brain fog, forgetfulness, or difficulty concentrating",
+        severity: 2,
+        category: "Moderate",
+      },
+    ],
+  },
+  {
     id: "stressSymptoms",
-    title: "Now let's go through your stress symptoms",
+    title: "Now let's go through your stress symptoms:",
     type: "symptoms",
     options: [
       {
@@ -130,7 +254,7 @@ export const steps = [
   },
   {
     id: "bloodSugarSymptoms",
-    title: "Let's now focus on blood sugar symptoms",
+    title: "Let's now focus on blood sugar symptoms:",
     type: "symptoms",
     options: [
       {
@@ -177,7 +301,7 @@ export const steps = [
   },
   {
     id: "nutritionalSymptoms",
-    title: "And finally your nutritional status symptoms",
+    title: "And finally, let's understand your nutritional status:",
     type: "symptoms",
     options: [
       {
@@ -229,6 +353,7 @@ export const steps = [
       "I have more than 2 coffees/day",
       "I have more than 4 alcoholic drinks/week",
       "I have less than 7 hours sleep",
+      "I usually have toast or cereal for breakfast",
       "None of these",
     ],
   },
