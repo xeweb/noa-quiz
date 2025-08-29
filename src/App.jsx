@@ -24,12 +24,8 @@ export default function App() {
     const lifeStage = answers.lifeStage;
 
     return steps.filter((step) => {
-      // Always show welcome, email capture, life stage, and blocked steps
-      if (
-        ["welcome", "emailCapture", "lifeStage", "pregnantPostpartum"].includes(
-          step.id
-        )
-      ) {
+      // Always show welcome, email capture, and life stage
+      if (["welcome", "emailCapture", "lifeStage"].includes(step.id)) {
         return true;
       }
 
@@ -38,6 +34,15 @@ export default function App() {
         return ["I'm pregnant", "I'm postpartum (less than 6 months)"].includes(
           lifeStage
         );
+      }
+
+      // Don't show any other steps if pregnant/postpartum is selected
+      if (
+        ["I'm pregnant", "I'm postpartum (less than 6 months)"].includes(
+          lifeStage
+        )
+      ) {
+        return false;
       }
 
       // Show conditional hormone symptoms based on life stage
@@ -135,7 +140,7 @@ export default function App() {
     const currentStepData = filteredSteps[currentStep];
     if (currentStepData.type === "welcome") return true;
     if (currentStepData.type === "email") return answers.email.trim() !== "";
-    if (currentStepData.type === "blocked") return true;
+    if (currentStepData.type === "blocked") return false; // Can't proceed from blocked step
 
     const answer = answers[currentStepData.id];
     if (currentStepData.type === "single") return answer !== "";
