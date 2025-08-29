@@ -332,9 +332,11 @@ export default function App() {
                 </h4>
                 <ul className="space-y-2">
                   {resultsContent.planBenefits.map((benefit, index) => (
-                    <li key={index} className="flex items-start">
+                    <li key={index} className="flex items-start text-left">
                       <FiCheck className="text-green-500 mt-1 mr-2 flex-shrink-0" />
-                      <span className="text-gray-700">{benefit}</span>
+                      <span className="text-gray-700 leading-relaxed">
+                        {benefit}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -348,7 +350,7 @@ export default function App() {
                 target="_top"
                 className="inline-flex items-center px-8 py-4 bg-[rgb(237,255,198)] border-2 border-black text-black font-semibold rounded-lg hover:bg-[rgb(217,235,178)] transition-colors"
               >
-                Build my NOA plan
+                Start my NOA plan
                 <FiArrowRight className="ml-2" />
               </a>
             </div>
@@ -361,7 +363,9 @@ export default function App() {
       case "welcome":
         return (
           <div className="text-center space-y-6">
-            <h2 className="text-2xl font-bold text-gray-900">{step.title}</h2>
+            <h2 className="text-2xl font-semibold text-gray-900">
+              {step.title}
+            </h2>
             <p className="text-gray-700 text-md leading-relaxed">
               {step.description}
             </p>
@@ -409,7 +413,9 @@ export default function App() {
       case "blocked":
         return (
           <div className="text-center space-y-6">
-            <h2 className="text-2xl font-bold text-gray-900">{step.title}</h2>
+            <h2 className="text-2xl font-semibold text-gray-900">
+              {step.title}
+            </h2>
             <p className="text-gray-700 text-lg leading-relaxed">
               {step.description}
             </p>
