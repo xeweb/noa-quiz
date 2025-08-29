@@ -6,6 +6,7 @@ import { advice, resultsContent } from "./data/quizAdvice";
 export default function App() {
   const progressBarRef = useRef(null);
   const resultsRef = useRef(null);
+  const [marketingConsent, setMarketingConsent] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState({
     firstName: "",
@@ -145,7 +146,8 @@ export default function App() {
       return (
         answers.firstName.trim() !== "" &&
         answers.lastName.trim() !== "" &&
-        answers.email.trim() !== ""
+        answers.email.trim() !== "" &&
+        marketingConsent
       );
     if (currentStepData.type === "blocked") return false;
 
@@ -400,6 +402,22 @@ export default function App() {
                 onChange={(e) => handleAnswer("email", e.target.value)}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"
               />
+              <div className="flex items-start">
+                <input
+                  type="checkbox"
+                  id="marketing-consent"
+                  checked={marketingConsent}
+                  onChange={(e) => setMarketingConsent(e.target.checked)}
+                  className="mt-1 mr-3 text-black focus:ring-black rounded"
+                />
+                <label
+                  htmlFor="marketing-consent"
+                  className="text-sm text-gray-700 leading-relaxed"
+                >
+                  I consent to receiving marketing communications from Now Often
+                  Always. I understand I can unsubscribe at any time.
+                </label>
+              </div>
             </div>
           </div>
         );
@@ -565,9 +583,9 @@ export default function App() {
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Header */}
-      <header className="bg-black text-white sticky top-0 z-10">
+      <header className="bg-black sticky top-0 z-10">
         <div className="h-14 flex items-center justify-center">
-          <h1 className="text-xl font-semibold">Now Often Always Quiz</h1>
+          <img src="/logo.png" alt="Now Often Always Quiz" className="h-6" />
         </div>
       </header>
 
