@@ -585,7 +585,9 @@ export default function App() {
       {/* Header */}
       <header className="bg-black sticky top-0 z-10">
         <div className="h-14 flex items-center justify-center">
-          <img src="/logo.png" alt="Now Often Always Quiz" className="h-6" />
+          <a href="https://www.nowoftenalways.com/">
+            <img src="/logo.png" alt="Now Often Always Quiz" className="h-6" />
+          </a>
         </div>
       </header>
 
