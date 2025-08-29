@@ -395,7 +395,7 @@ export default function App() {
               </div>
               <input
                 type="email"
-                placeholder="Enter your email address"
+                placeholder="Email address"
                 value={answers.email}
                 onChange={(e) => handleAnswer("email", e.target.value)}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"

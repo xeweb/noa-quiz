@@ -10,8 +10,9 @@ export const steps = [
   },
   {
     id: "emailCapture",
-    title: "Get Your Results",
-    description: "Enter your email address to receive a copy of your results:",
+    title: "Your Details",
+    description:
+      "Please enter your name and email address to receive your personalised results:",
     type: "email",
   },
   {
@@ -34,7 +35,7 @@ export const steps = [
     title:
       "We are not currently working with women who are pregnant or less than 6 months postpartum.",
     description:
-      "We are working on this service to deliver something special and bespoke to your life stage. Love Team NOA xxx",
+      "We are working on this service to deliver something special and bespoke to your life stage. Love Team NOA ❤️",
     type: "blocked",
   },
   {
@@ -53,8 +54,7 @@ export const steps = [
   },
   {
     id: "hormoneSymptoms",
-    title:
-      "Let's start with understanding your hormone symptoms. Tick all that apply:",
+    title: "Let's start with understanding your hormone symptoms:",
     type: "symptoms",
     options: [
       {
@@ -149,7 +149,7 @@ export const steps = [
   },
   {
     id: "perimenopauseSymptoms",
-    title: "Perimenopause Hormone Symptom Checklist",
+    title: "Perimenopause Symptoms",
     type: "symptoms",
     showIf: "Perimenopause",
     options: [
@@ -207,7 +207,7 @@ export const steps = [
   },
   {
     id: "stressSymptoms",
-    title: "Now let's go through your stress symptoms. Tick all that apply:",
+    title: "Now let's go through your stress symptoms:",
     type: "symptoms",
     options: [
       {
@@ -254,7 +254,7 @@ export const steps = [
   },
   {
     id: "bloodSugarSymptoms",
-    title: "Let's now focus on blood sugar symptoms. Tick all that apply:",
+    title: "Let's now focus on blood sugar symptoms:",
     type: "symptoms",
     options: [
       {
@@ -301,8 +301,7 @@ export const steps = [
   },
   {
     id: "nutritionalSymptoms",
-    title:
-      "And finally, let's understand your nutritional status. Tick all that apply:",
+    title: "And finally, let's understand your nutritional status:",
     type: "symptoms",
     options: [
       {
