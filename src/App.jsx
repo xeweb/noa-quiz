@@ -8,6 +8,8 @@ export default function App() {
   const resultsRef = useRef(null);
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState({
+    firstName: "",
+    lastName: "",
     email: "",
     lifeStage: "",
     goals: [],
@@ -139,8 +141,13 @@ export default function App() {
   const canProceed = () => {
     const currentStepData = filteredSteps[currentStep];
     if (currentStepData.type === "welcome") return true;
-    if (currentStepData.type === "email") return answers.email.trim() !== "";
-    if (currentStepData.type === "blocked") return false; // Can't proceed from blocked step
+    if (currentStepData.type === "email")
+      return (
+        answers.firstName.trim() !== "" &&
+        answers.lastName.trim() !== "" &&
+        answers.email.trim() !== ""
+      );
+    if (currentStepData.type === "blocked") return false;
 
     const answer = answers[currentStepData.id];
     if (currentStepData.type === "single") return answer !== "";
@@ -372,6 +379,22 @@ export default function App() {
             </h2>
             <p className="text-gray-700">{step.description}</p>
             <div className="space-y-4">
+              <div className="flex flex-col md:flex-row gap-4">
+                <input
+                  type="text"
+                  placeholder="First name"
+                  value={answers.firstName}
+                  onChange={(e) => handleAnswer("firstName", e.target.value)}
+                  className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"
+                />
+                <input
+                  type="text"
+                  placeholder="Last name"
+                  value={answers.lastName}
+                  onChange={(e) => handleAnswer("lastName", e.target.value)}
+                  className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"
+                />
+              </div>
               <input
                 type="email"
                 placeholder="Enter your email address"
