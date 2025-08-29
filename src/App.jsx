@@ -265,7 +265,7 @@ export default function App() {
               const advice = getAdvice(category, level);
               const categoryName = {
                 hormones: "Hormones",
-                stress: "Stress / HPA Axis",
+                stress: "Stress",
                 bloodSugar: "Blood Sugar",
                 nutritional: "Nutritional Status",
               }[category];
