@@ -345,7 +345,6 @@ export default function App() {
               <p className="text-gray-700 mb-6">{resultsContent.cta}</p>
               <a
                 href="https://www.nowoftenalways.com/noa-plan-purchase"
-                target="_top"
                 className="inline-flex items-center px-8 py-4 bg-[rgb(237,255,198)] border-2 border-black text-black font-semibold rounded-lg hover:bg-[rgb(217,235,178)] transition-colors"
               >
                 Start my NOA plan

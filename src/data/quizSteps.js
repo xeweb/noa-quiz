@@ -97,6 +97,11 @@ export const steps = [
         severity: 2,
         category: "Moderate",
       },
+      {
+        text: "None of these",
+        severity: 0,
+        category: "None",
+      },
     ],
   },
   {
@@ -144,6 +149,11 @@ export const steps = [
         text: "Unexplained weight changes",
         severity: 2,
         category: "Moderate",
+      },
+      {
+        text: "None of these",
+        severity: 0,
+        category: "None",
       },
     ],
   },
@@ -203,6 +213,11 @@ export const steps = [
         severity: 2,
         category: "Moderate",
       },
+      {
+        text: "None of these",
+        severity: 0,
+        category: "None",
+      },
     ],
   },
   {
@@ -249,6 +264,11 @@ export const steps = [
         text: "Frequent afternoon slump (14:00–17:00)",
         severity: 1,
         category: "Mild",
+      },
+      {
+        text: "None of these",
+        severity: 0,
+        category: "None",
       },
     ],
   },
@@ -297,6 +317,11 @@ export const steps = [
         severity: 2,
         category: "Moderate",
       },
+      {
+        text: "None of these",
+        severity: 0,
+        category: "None",
+      },
     ],
   },
   {
@@ -340,6 +365,11 @@ export const steps = [
         category: "Moderate",
       },
       { text: "Bruise easily", severity: 2, category: "Moderate" },
+      {
+        text: "None of these",
+        severity: 0,
+        category: "None",
+      },
     ],
   },
   {
