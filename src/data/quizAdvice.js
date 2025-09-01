@@ -9,14 +9,14 @@ export const advice = {
       },
       Moderate: {
         title:
-          "Your results suggest your hormones may need some extra TLC. PMS, skin changes or cycle shifts can all be early signals. Small daily tweaks can have a big ripple effect.",
+          "Your results suggest your hormones may need some extra TLC. It looks like your body could benefit from small daily tweaks to bring things back into balance.",
         tips: [
           "Switch from coffee to matcha or herbal tea in the week before your period",
         ],
       },
       High: {
         title:
-          "Your hormones are sending stronger signals. Irregular periods, heavy bleeds or low libido are often signs that key hormones are out of balance. Your body is asking for more targeted support.",
+          "Your results show stronger signals that your hormones may be out of balance. Your body is asking for more targeted support.",
         tips: [
           "Keep blood sugar steady with balanced meals — hormones and glucose are best friends",
         ],
@@ -31,12 +31,12 @@ export const advice = {
       },
       Moderate: {
         title:
-          "Your results suggest hormone shifts are starting to show up. Symptoms like sleep changes, mood swings or hot flushes are common at this stage. Small daily tweaks can make a big difference.",
+          "Your results suggest your body is starting to show the early shifts of perimenopause. Small daily tweaks can make a big difference in helping you feel more balanced.",
         tips: ["Add ground flaxseed or chia to your breakfast"],
       },
       High: {
         title:
-          "Your body is sending stronger signals of perimenopause. Hot flushes, heavy cycles or disrupted sleep may be affecting daily life. Your results suggest you could benefit from tailored support.",
+          "Your results show stronger signs that perimenopause changes are impacting daily life. This is a stage where tailored support can really help.",
         tips: [
           "Prioritise winding down before bed with low light and no screens",
         ],
@@ -53,12 +53,12 @@ export const advice = {
       },
       Moderate: {
         title:
-          "Your results suggest menopause changes are starting to show. Symptoms like poor sleep, joint stiffness or vaginal dryness are common. With the right support, you can ease these symptoms.",
+          "Your results suggest some changes linked to menopause may be showing up. With the right support, you can ease these shifts and feel more like you.",
         tips: ["Add calcium-rich foods like sardines, tahini or leafy greens"],
       },
       High: {
         title:
-          "Your body is sending stronger signals of menopause. Symptoms like hot flushes, sleep problems or low libido may be impacting quality of life. Your results suggest more targeted support would help.",
+          "Your results show stronger signs that menopause is impacting daily life. More targeted support would help you manage this stage and feel your best.",
         tips: [
           "Prioritise winding down before bed with low light and no screens",
         ],
@@ -73,14 +73,14 @@ export const advice = {
     },
     Moderate: {
       title:
-        "Your nervous system may be holding on to a bit too much tension. Symptoms like being on edge, wired at night, or needing caffeine to get through the day are signs it needs support. Small daily tweaks can help turn the dial down.",
+        "Your nervous system may be holding on to a bit too much tension. Creating small moments of calm in your day will help ease the load.",
       tips: [
         "Try the physiological sigh (two quick inhales, long exhale) before stressful tasks",
       ],
     },
     High: {
       title:
-        "Your fight or flight response has been in overdrive for some time. Feeling constantly wired, exhausted, or reactive are strong signs of stress imbalance. Your body will benefit from targeted support.",
+        "Your fight or flight response has been in overdrive for some time. This is a strong signal that your nervous system needs more consistent care.",
       tips: [
         "Begin your day with 5–10 minutes outside to help reset your body clock",
       ],
@@ -96,14 +96,14 @@ export const advice = {
     },
     Moderate: {
       title:
-        "Your energy dips and cravings suggest your blood sugar may be on a rollercoaster. With the right tweaks you can smooth it out.",
+        "Your results suggest your blood sugar may be on a bit of a rollercoaster. Balancing how and when you eat can smooth things out and give you more stable energy.",
       tips: ["Pair every carb with protein"],
       nextStep:
         "We created NOA so women feel heard. Sign up today for your personalised plan and speak to a nutritionist about your results.",
     },
     High: {
       title:
-        "Your results show strong signs of blood sugar swings. Cravings, crashes and disrupted sleep are all common effects. Your body will benefit from targeted support.",
+        "Your results show stronger signs of blood sugar swings, which may be affecting your energy, cravings or sleep. This is an area where personalised guidance could make a real difference.",
       tips: ["Keep snacks like nuts or boiled eggs handy to avoid crashes"],
     },
   },
@@ -115,14 +115,14 @@ export const advice = {
     },
     Moderate: {
       title:
-        "Your results suggest you may be running low on some nutrients. Tiredness, brittle nails or skin changes are often early signs. Tweaks to your diet can help top you up.",
+        "Your results suggest you may be running a little low on some nutrients. Small tweaks to your diet can help top things back up.",
       tips: [
         "Take a 10-minute walk after lunch to help your body use glucose more efficiently",
       ],
     },
     High: {
       title:
-        "Your results show stronger signals of nutritional deficiencies. Fatigue, hair or skin changes and dizziness are all signs your body may be running low. Your body will benefit from personalised support.",
+        "Your results highlight clear signs of nutritional gaps. Giving your body the right building blocks will help restore balance and resilience.",
       tips: [
         "Add a sprinkle of cinnamon to porridge, yoghurt, or coffee — it can help support glucose balance",
       ],

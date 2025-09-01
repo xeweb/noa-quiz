@@ -18,7 +18,7 @@ export const steps = [
   {
     id: "lifeStage",
     title:
-      "Let's start with understanding what stage of life you are in. Tick one of the options below:",
+      "Let's start with understanding what stage of life you are in. Choose one of the options below:",
     type: "single",
     options: [
       "I have a monthly cycle",

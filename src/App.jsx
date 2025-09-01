@@ -361,14 +361,13 @@ export default function App() {
         return (
           <div className="text-center space-y-6">
             <h2 className="text-2xl font-semibold text-gray-900">
-              {step.title}
+              Welcome to{" "}
+              <span className="block md:inline">Now Often Always</span>
             </h2>
             <p className="text-gray-700 text-md leading-relaxed">
               {step.description}
             </p>
-            {step.disclaimer && (
-              <p className="text-sm text-gray-600 italic">{step.disclaimer}</p>
-            )}
+            <p className="text-sm text-gray-600 italic">{step.disclaimer}</p>
           </div>
         );
 
@@ -426,7 +425,7 @@ export default function App() {
       case "blocked":
         return (
           <div className="text-center space-y-6">
-            <h2 className="text-2xl font-semibold text-gray-900">
+            <h2 className="text-xl font-semibold text-gray-900">
               {step.title}
             </h2>
             <p className="text-gray-700 text-lg leading-relaxed">
