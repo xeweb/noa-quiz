@@ -59,7 +59,11 @@ export default function App() {
 
       // Show regular hormone symptoms only for monthly cycle
       if (step.id === "hormoneSymptoms") {
-        return lifeStage === "I have a monthly cycle";
+        return (
+          lifeStage === "I have a monthly cycle" ||
+          lifeStage ===
+            "I don't have a monthly cycle / irregular cycle (for example, you have a condition such as PCOS or Hypothalamic Amenorrhea)"
+        );
       }
 
       // Show other steps for all life stages
@@ -173,7 +177,11 @@ export default function App() {
     };
 
     // Calculate hormone score based on life stage
-    if (answers.lifeStage === "I have a monthly cycle") {
+    if (
+      answers.lifeStage === "I have a monthly cycle" ||
+      answers.lifeStage ===
+        "I don't have a monthly cycle / irregular cycle (for example, you have a condition such as PCOS or Hypothalamic Amenorrhea)"
+    ) {
       answers.hormoneSymptoms.forEach((symptom) => {
         const symptomData = steps
           .find((s) => s.id === "hormoneSymptoms")
@@ -232,7 +240,11 @@ export default function App() {
   const getAdvice = (category, level) => {
     if (category === "hormones") {
       // Get life stage specific hormone advice
-      if (answers.lifeStage === "I have a monthly cycle") {
+      if (
+        answers.lifeStage === "I have a monthly cycle" ||
+        answers.lifeStage ===
+          "I don't have a monthly cycle / irregular cycle (for example, you have a condition such as PCOS or Hypothalamic Amenorrhea)"
+      ) {
         return advice.hormones.cycle[level] || { title: "", tips: [] };
       } else if (answers.lifeStage === "Menopause") {
         return advice.hormones.menopause[level] || { title: "", tips: [] };

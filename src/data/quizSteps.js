@@ -22,6 +22,7 @@ export const steps = [
     type: "single",
     options: [
       "I have a monthly cycle",
+      "I don't have a monthly cycle / irregular cycle (for example, you have a condition such as PCOS or Hypothalamic Amenorrhea)",
       "I'm pregnant",
       "I'm postpartum (less than 6 months)",
       "Perimenopause",
