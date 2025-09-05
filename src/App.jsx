@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { FiArrowRight, FiArrowLeft, FiCheck } from "react-icons/fi";
 import { steps } from "./data/quizSteps";
 import { advice, resultsContent } from "./data/quizAdvice";
+import { addToList } from "./klaviyo";
 
 export default function App() {
   const progressBarRef = useRef(null);
@@ -666,7 +667,10 @@ export default function App() {
 
                 {currentStep === filteredSteps.length ? (
                   <button
-                    onClick={nextStep}
+                    onClick={() => {
+                      addToList(answers);
+                      nextStep();
+                    }}
                     disabled={!canProceed()}
                     className={`flex items-center px-6 py-2 rounded-lg font-medium transition-colors ${
                       canProceed()
