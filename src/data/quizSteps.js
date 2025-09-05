@@ -84,7 +84,7 @@ export const steps = [
         category: "Mild",
       },
       {
-        text: "Jawline/chin acne around ovulation or before your period",
+        text: "Jawline/chin acne",
         severity: 2,
         category: "Moderate",
       },

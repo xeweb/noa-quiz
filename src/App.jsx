@@ -27,9 +27,14 @@ export default function App() {
     const lifeStage = answers.lifeStage;
 
     return steps.filter((step) => {
-      // Always show welcome, email capture, and life stage
-      if (["welcome", "emailCapture", "lifeStage"].includes(step.id)) {
+      // Always show welcome and life stage, but not email capture (moved to end)
+      if (["welcome", "lifeStage"].includes(step.id)) {
         return true;
+      }
+
+      // Don't show email capture in the main flow (will be shown at the end)
+      if (step.id === "emailCapture") {
+        return false;
       }
 
       // Show pregnant/postpartum blocked step only if selected
@@ -130,7 +135,7 @@ export default function App() {
   };
 
   const nextStep = () => {
-    if (currentStep < filteredSteps.length) {
+    if (currentStep <= filteredSteps.length) {
       setCurrentStep(currentStep + 1);
     }
     setTimeout(scrollToTop, 100);
@@ -144,17 +149,18 @@ export default function App() {
   };
 
   const canProceed = () => {
+    // Handle email step (shown at filteredSteps.length)
+    if (currentStep === filteredSteps.length) {
+      return (
+        answers.firstName.trim() !== "" &&
+        answers.lastName.trim() !== "" &&
+        answers.email.trim() !== "" &&
+        marketingConsent
+      );
+    }
+
     const currentStepData = filteredSteps[currentStep];
     if (currentStepData.type === "welcome") return true;
-    // @todo remove
-    if (currentStepData.type === "email") return true;
-    // if (currentStepData.type === "email")
-    //   return (
-    //     answers.firstName.trim() !== "" &&
-    //     answers.lastName.trim() !== "" &&
-    //     answers.email.trim() !== "" &&
-    //     marketingConsent
-    //   );
     if (currentStepData.type === "blocked") return false;
 
     const answer = answers[currentStepData.id];
@@ -259,9 +265,12 @@ export default function App() {
   };
 
   const renderStep = () => {
-    const step = filteredSteps[currentStep];
+    let step;
 
-    if (currentStep >= filteredSteps.length) {
+    // Show email capture step as the last step before results
+    if (currentStep === filteredSteps.length) {
+      step = steps.find((step) => step.id === "emailCapture");
+    } else if (currentStep > filteredSteps.length) {
       // Results page
       const scores = calculateScores();
       return (
@@ -366,6 +375,8 @@ export default function App() {
           </div>
         </div>
       );
+    } else {
+      step = filteredSteps[currentStep];
     }
 
     switch (step.type) {
@@ -607,14 +618,16 @@ export default function App() {
       <main className="container mx-auto px-4 py-8">
         <div className="max-w-xl mx-auto">
           {/* Progress Bar */}
-          {currentStep < filteredSteps.length && (
+          {currentStep <= filteredSteps.length && (
             <div ref={progressBarRef} className="mb-8">
               <div className="flex items-center justify-between text-sm text-gray-600 mb-2">
                 <span>
-                  Step {currentStep + 1} of {filteredSteps.length}
+                  Step {currentStep + 1} of {filteredSteps.length + 1}
                 </span>
                 <span>
-                  {Math.round(((currentStep + 1) / filteredSteps.length) * 100)}
+                  {Math.round(
+                    ((currentStep + 1) / (filteredSteps.length + 1)) * 100
+                  )}
                   %
                 </span>
               </div>
@@ -623,7 +636,7 @@ export default function App() {
                   className="bg-black h-2 rounded-full transition-all duration-300"
                   style={{
                     width: `${
-                      ((currentStep + 1) / filteredSteps.length) * 100
+                      ((currentStep + 1) / (filteredSteps.length + 1)) * 100
                     }%`,
                   }}
                 />
@@ -636,7 +649,7 @@ export default function App() {
             {renderStep()}
 
             {/* Navigation */}
-            {currentStep < filteredSteps.length && (
+            {currentStep <= filteredSteps.length && (
               <div className="flex items-center justify-between mt-8 pt-6 border-t border-gray-200">
                 <button
                   onClick={prevStep}
@@ -651,7 +664,7 @@ export default function App() {
                   Back
                 </button>
 
-                {currentStep === filteredSteps.length - 1 ? (
+                {currentStep === filteredSteps.length ? (
                   <button
                     onClick={nextStep}
                     disabled={!canProceed()}
