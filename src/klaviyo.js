@@ -1,4 +1,9 @@
 export const addToList = (answers) => {
+  // Do nothing in development mode
+  if (import.meta.env.DEV) {
+    return;
+  }
+
   const quizData = {
     lifeStage: answers.lifeStage,
     goals: answers.goals.join(", "),

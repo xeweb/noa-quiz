@@ -134,10 +134,10 @@ export const resultsContent = {
   title: "✨ The quiz is just the beginning",
   subtitle: "You've taken the first step in understanding your body.",
   planBenefits: [
-    "Share your story with us",
-    "Have your blood test done",
-    "Have a 45-minute video consultation with a registered nutritionist",
-    "Receive your fully personalised wellness plan",
+    "Complete our health questionnaire so we can understand your story",
+    "Book your NOA Wellness Blood Test to uncover what's happening inside",
+    "Have a 45-minute video consultation with a NOA Nutritionist",
+    "Receive your fully personalised wellness plan - built for your unique body",
   ],
   cta: "Start your NOA Now Plan today - because your wellbeing deserves more than guesswork.",
 };

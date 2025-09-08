@@ -12,7 +12,7 @@ export const steps = [
     id: "emailCapture",
     title: "Your Details",
     description:
-      "Please enter your name and email address to receive your personalised results:",
+      "By entering your details, you'll receive personalised wellness guidance from Now Often Always, including recipe ideas, lifestyle tips and support tailored to you:",
     type: "email",
   },
   {
